@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
-  BrowserRouter,
+  HashRouter,
   Link,
   NavLink,
   Route,
@@ -29,7 +29,7 @@ const quickQuestions = [
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <div className="app-shell">
         <SiteHeader />
@@ -43,7 +43,7 @@ function App() {
         </Routes>
         <SiteFooter />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
