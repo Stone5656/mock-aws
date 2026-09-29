@@ -4,10 +4,18 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
 
-  // Cloudflare Pages のドメインルートから配信
   base: "/",
+
+  // ログを消さずに残す
+  clearScreen: false,
+  logLevel: "info",
 
   build: {
     outDir: "dist",
+    minify: true,
+    sourcemap: true,
+    reportCompressedSize: true,
+    chunkSizeWarningLimit: 400,
+    emptyOutDir: true,
   },
 });
