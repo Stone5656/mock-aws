@@ -49,14 +49,18 @@ function App() {
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => window.scrollTo({ top: 0, behavior: "smooth" }), [pathname]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
   return null;
 }
 
 function SiteHeader() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  useEffect(() => setOpen(false), [location.pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -514,10 +518,9 @@ function ChatPage() {
   const [isTyping, setIsTyping] = useState(false);
   const endRef = useRef(null);
   const timeoutRef = useRef(null);
-  useEffect(
-    () => endRef.current?.scrollIntoView({ behavior: "smooth" }),
-    [messages, isTyping],
-  );
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isTyping]);
   useEffect(() => () => clearTimeout(timeoutRef.current), []);
   function sendMessage(text) {
     const trimmed = text.trim();
