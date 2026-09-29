@@ -8,6 +8,9 @@ build/
 # Vite
 .vite/
 
+# Cloudflare Wrangler local state
+.wrangler/
+
 # Environment variables
 .env
 .env.*
